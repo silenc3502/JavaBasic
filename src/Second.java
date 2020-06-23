@@ -8,6 +8,7 @@ public class Second {
         System.out.print("첫 번째 정수를 입력해주세요: ");
         int num1 = scan.nextInt();
 
+        // 주석(다른 사람이 작성한 코드)
         System.out.print("두 번째 정수를 입력해주세요: ");
         int num2 = scan.nextInt();
 
