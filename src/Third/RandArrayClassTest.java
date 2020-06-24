@@ -1,5 +1,7 @@
 package Third;
 
+import java.util.Random;
+
 class Location {
     final int MAX = 7;
 
@@ -11,17 +13,26 @@ class Location {
 
     float[] distArr;
 
+    Random rand;
+
     public Location() {
+        rand = new Random();
+
         locXArr = new int[MAX];
         locYArr = new int[MAX];
 
         for(int i = 0; i < MAX; i++) {
             // locXArr와 locYArr를 채운다.
+            // 2 ~ 7 >>> 0 ~ 5
+            locXArr[i] = rand.nextInt(6) + 2;
+            locYArr[i] = rand.nextInt(6) + 2;
         }
     }
 
     public void calcDistance() {
         // distArr를 구한다.
+        // 기준점이 (0, 0) X
+        // 기준점이 현재 내 위치(3, 5)라는 부분을 주의
     }
 }
 // 문제 1. 현재 내가 있는 위치가 (3, 5)에 있다.
