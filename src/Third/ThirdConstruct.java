@@ -14,6 +14,25 @@ class Vehicle {
     public Vehicle() {
         System.out.println("뭐시 ?");
     }
+
+    public Vehicle(String n, String c, float s) {
+        name = n;
+        color = c;
+        speed = s;
+    }
+
+    // 자동 완성으로 getter를 만들었다.
+    public String getColor() {
+        return color;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public float getSpeed() {
+        return speed;
+    }
 }
 
 // 생성자
@@ -28,12 +47,18 @@ public class ThirdConstruct {
         // class 작성시 원칙이 있다.
         // 1. 캡슐화
         // 2. 정보 은닉
+        /*
         v1.color = "색상";
         v1.speed = 30.3f;
         v1.name = "포르쉐 918";
+         */
 
-        System.out.println(v1.color);
-        System.out.println(v1.speed);
-        System.out.println(v1.name);
+        Vehicle v2 = new Vehicle(
+                "포르쉐 918", "파랑", 210.7f
+        );
+
+        System.out.println(v2.getColor());
+        System.out.println(v2.getSpeed());
+        System.out.println(v2.getName());
     }
 }
