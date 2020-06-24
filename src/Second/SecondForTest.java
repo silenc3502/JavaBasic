@@ -1,3 +1,5 @@
+package Second;
+
 public class SecondForTest {
     public static void main(String[] args) {
         System.out.println("For문에 익숙해지자!");

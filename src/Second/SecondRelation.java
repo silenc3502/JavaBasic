@@ -1,3 +1,5 @@
+package Second;
+
 public class SecondRelation {
     public static void main(String[] args) {
         // if와 else if버전

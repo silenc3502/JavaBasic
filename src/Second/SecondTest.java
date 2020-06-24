@@ -1,3 +1,5 @@
+package Second;
+
 import java.util.Scanner;
 
 public class SecondTest {

@@ -1,3 +1,5 @@
+package Second;
+
 public class SecondWhile {
     public static void main(String[] args) {
         System.out.println("while문 테스트");
