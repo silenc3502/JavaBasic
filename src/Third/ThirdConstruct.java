@@ -15,7 +15,11 @@ class Vehicle {
         System.out.println("뭐시 ?");
     }
 
+    // 자바의 경우 매서드의 이름이 같더라도
+    // 입력(파라미터)의 개수가 다르면
+    // 얼마든지 여러개를 선언할 수 있다.
     public Vehicle(String n, String c, float s) {
+        System.out.println("난 여기야");
         name = n;
         color = c;
         speed = s;
@@ -53,6 +57,9 @@ public class ThirdConstruct {
         v1.name = "포르쉐 918";
          */
 
+        // 생성자를 통해서
+        // 클래스 내부의 데이터를 설정할 수 있다.
+        // 즉 이런 경우엔 setter가 전혀 필요 없다.
         Vehicle v2 = new Vehicle(
                 "포르쉐 918", "파랑", 210.7f
         );
@@ -62,3 +69,8 @@ public class ThirdConstruct {
         System.out.println(v2.getName());
     }
 }
+
+// 문제. 1 ~ 20까지 숫자중
+//      짝수들의 합을 산출하는 매서드를
+//      클래스 내부에 구현해보도록 한다.
+//      (이번에는 setter 없애고 생성자로 작성해보자 ~)
