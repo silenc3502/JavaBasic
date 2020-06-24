@@ -21,6 +21,8 @@ class Location {
         locXArr = new int[MAX];
         locYArr = new int[MAX];
 
+        distArr = new float[MAX];
+
         for(int i = 0; i < MAX; i++) {
             // locXArr와 locYArr를 채운다.
             // 2 ~ 7 >>> 0 ~ 5
@@ -33,6 +35,28 @@ class Location {
         // distArr를 구한다.
         // 기준점이 (0, 0) X
         // 기준점이 현재 내 위치(3, 5)라는 부분을 주의
+        for(int i = 0; i < MAX; i++) {
+            distArr[i] = (float)Math.sqrt(
+                Math.pow(X - locXArr[i], 2) +
+                Math.pow(Y - locYArr[i], 2)
+            );
+            System.out.println(distArr[i]);
+        }
+    }
+
+    public String toString() {
+        String res = "";
+        int i, cnt = 0;
+
+        for(i = 0; i < MAX - 1; i++, cnt++) {
+            if(cnt % 4 == 0) {
+                res += "\n";
+            }
+            res += distArr[i] + ", ";
+        }
+        res += distArr[i];
+
+        return res;
     }
 }
 // 문제 1. 현재 내가 있는 위치가 (3, 5)에 있다.
@@ -51,5 +75,7 @@ public class RandArrayClassTest {
         System.out.println("랜덤 좌표 문제");
 
         Location loc = new Location();
+        loc.calcDistance();
+        // System.out.println(loc);
     }
 }
