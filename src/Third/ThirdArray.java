@@ -37,6 +37,7 @@ public class ThirdArray {
             System.out.println(arr[idx]);
             sum += arr[idx];
         }
+        //   1   1   2   3   5   8   13  21
         // | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
         //  [0] [1] [2] [3] [4] [5] [6] [7]
 
