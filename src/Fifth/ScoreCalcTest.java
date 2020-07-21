@@ -51,12 +51,32 @@ class Bachelor extends Person {
         }
     }
 
+    public String getMajor() {
+        return major;
+    }
+
+    public String getMinor() {
+        return minor;
+    }
+
+    public float[] getScores() {
+        return scores;
+    }
+
     @Override
     public String toString() {
         return "Bachelor{" +
-                "major='" + major + '\'' +
+                "name='" + getName() + '\'' +
+                ", age=" + getAge() +
+                ", major='" + major + '\'' +
                 ", minor='" + minor + '\'' +
                 ", scores=" + Arrays.toString(scores) +
+                ", mean=" + MyMathLib.calcMean(scores) +
+                ", variation=" + MyMathLib.calcVariation(
+                        scores, MyMathLib.calcMean(scores)) +
+                ", standard deviation=" + MyMathLib.calcStdDev(
+                    MyMathLib.calcVariation(
+                        scores, MyMathLib.calcMean(scores))) +
                 '}';
     }
 }
@@ -83,9 +103,50 @@ class Master extends Bachelor {
     @Override
     public String toString() {
         return "Master{" +
-                "paper='" + paper + '\'' +
-                ", scores=" + Arrays.toString(scores) +
+                "name='" + getName() + '\'' +
+                ", age=" + getAge() +
+                ", major='" + getMajor() + '\'' +
+                ", minor='" + getMinor() + '\'' +
+                ", Bachelor scores=" + Arrays.toString(getScores()) +
+                ", mean=" + MyMathLib.calcMean(getScores()) +
+                ", variation=" + MyMathLib.calcVariation(
+                getScores(), MyMathLib.calcMean(getScores())) +
+                ", standard deviation=" + MyMathLib.calcStdDev(
+                MyMathLib.calcVariation(
+                        getScores(), MyMathLib.calcMean(getScores()))) +
+                ", paper='" + paper + '\'' +
+                ", Master scores=" + Arrays.toString(scores) +
+                ", mean=" + MyMathLib.calcMean(scores) +
+                ", variation=" + MyMathLib.calcVariation(
+                scores, MyMathLib.calcMean(scores)) +
+                ", standard deviation=" + MyMathLib.calcStdDev(
+                MyMathLib.calcVariation(
+                        scores, MyMathLib.calcMean(scores))) +
                 '}';
+    }
+}
+
+class MyMathLib {
+    public static float calcMean(float[] arr) {
+        float sum = 0;
+
+        for(int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+
+        return sum / arr.length;
+    }
+    public static float calcVariation(float[] arr, float mean) {
+        float sum = 0;
+
+        for(int i = 0; i < arr.length; i++) {
+            sum += Math.pow(arr[i] - mean, 2);
+        }
+
+        return sum / arr.length;
+    }
+    public static float calcStdDev(float variation) {
+        return (float)Math.sqrt(variation);
     }
 }
 // 문제 2. 일반 학사와 석사 학생의 성적 관리 프로그램을 작성한다.
@@ -115,3 +176,10 @@ public class ScoreCalcTest {
         System.out.println(m1);
     }
 }
+
+
+/* 숙제
+*  현재와 같은 학사, 석사 학생들을 랜덤으로 다수 만든 다음에
+*  전체에서의 평균과 분산과 표준편차를 계산해보도록 개조해보자
+*  또한 현재 구조가 상당히 지저분하다(toString())
+*  이 지저분한 부분을 어떻게 깔끔하게 바꿀 수 있을지 고찰해보도록 한다. */
