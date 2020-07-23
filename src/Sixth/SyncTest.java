@@ -43,17 +43,19 @@ class Bank2 {
 
 class C extends Thread {
     public void run() {
-        NoSyncTest.myPrivateBank.saveMoney(3000);
+        // NoSyncTest의 정보를 호출하고 있었는데
+        // SyncTest로 변경하였음
+        SyncTest.myPrivateBank.saveMoney(3000);
         System.out.println("saveMoney(3000): " +
-                NoSyncTest.myPrivateBank.getMoney());
+                SyncTest.myPrivateBank.getMoney());
     }
 }
 
 class D extends Thread {
     public void run() {
-        NoSyncTest.myPrivateBank.useMoney(1000);
+        SyncTest.myPrivateBank.useMoney(1000);
         System.out.println("useMoney(1000): " +
-                NoSyncTest.myPrivateBank.getMoney());
+                SyncTest.myPrivateBank.getMoney());
     }
 }
 

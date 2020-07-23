@@ -56,7 +56,7 @@ class Y extends Thread {
             synchronized (RealSync.myPrivateBank) {
                 RealSync.myPrivateBank.useMoney(3000);
             }
-            System.out.println("saveMoney(3000): " +
+            System.out.println("useMoney(3000): " +
                 RealSync.myPrivateBank.getMoney());
         }
     }
@@ -76,3 +76,8 @@ public class RealSync {
         y.start();
     }
 }
+
+// 숙제 (조건, 클래스를 작성하자!)
+// 0. 복습
+// 1. 자바로 y = exp(x) 정적분을 구현해보자 ~
+// 2. Thread를 사용하여 y = exp(x) 정적분을 구현해보자 ~
